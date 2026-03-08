@@ -410,17 +410,20 @@ customSelects.forEach((wrapper) => {
 //     }
 //   });
 // });
-const form = document.getElementById('contact-form');
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contact-form');
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
+  if (!form) return;
 
-  let name = document.getElementById('full-name').value;
-  let email = document.getElementById('email').value;
-  let phone = document.getElementById('phone').value;
-  let details = document.getElementById('project-details').value;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  let message = `مرحبا، عندي استفسار من الموقع
+    let name = document.getElementById('full-name').value;
+    let email = document.getElementById('email').value;
+    let phone = document.getElementById('phone').value;
+    let details = document.getElementById('project-details').value;
+
+    let message = `مرحبا، عندي استفسار من الموقع
 
 الاسم: ${name}
 الايميل: ${email}
@@ -429,9 +432,10 @@ form.addEventListener('submit', function (e) {
 تفاصيل المشروع:
 ${details}`;
 
-  let whatsappNumber = '201151669139';
+    let whatsappNumber = '201151669139';
 
-  let url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    let url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-  window.open(url, '_blank');
+    window.open(url, '_blank');
+  });
 });
