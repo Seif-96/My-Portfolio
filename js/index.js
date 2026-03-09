@@ -15,6 +15,15 @@ let navLinks = document.querySelector('.nav-links');
 mobileMenuBtn.addEventListener('click', function () {
   navLinks.classList.toggle('active');
 });
+document.addEventListener('click', function (e) {
+  if (
+    !navLinks.contains(e.target) &&
+    !mobileMenuBtn.contains(e.target) &&
+    navLinks.classList.contains('active')
+  ) {
+    navLinks.classList.remove('active');
+  }
+});
 // nav-links active
 window.addEventListener('scroll', function () {
   // nav links
